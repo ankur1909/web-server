@@ -11,7 +11,7 @@ const forecast = ({location, placeName}, callback) => {
             callback(body.error);
         }
         else {
-            callback(undefined, ` In ${placeName} it is ${body.daily.data[0].summary}It is currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability}% chance of rain today. `)
+            callback(undefined, ` In ${placeName} it is ${body.daily.data[0].summary}It is currently ${body.currently.temperature} degrees out.The high today is ${body.daily.data[0].temperatureHigh} and the low is ${body.daily.data[0].temperatureLow}.There is a ${body.currently.precipProbability}% chance of rain today. `)
         }
     });
 }

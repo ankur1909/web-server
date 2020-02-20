@@ -48,12 +48,12 @@ app.get('/weather', (req,res) => {
             error: 'you must send an address parameter'
         })
     }
-    const loc = geocode(req.query.address, (error,location) => {
+    geocode(req.query.address, (error,location) => {
         if(error) {
             return res.send ({error});
         }
         forecast(location, (error, data) => {
-            res.send({
+            return res.send({
                 forecast: data,
                 location: location.placeName,
                 address: req.query.address
